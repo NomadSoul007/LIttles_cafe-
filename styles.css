@@ -364,3 +364,66 @@ h3{font-size:clamp(1.45rem,2.2vw,2rem)}
   .carousel-btn{ width:40px; height:40px; font-size:24px; }
   .menu-page-heading{ flex-direction:column; }
 }
+
+
+/* Mobile menu page fixes */
+.menu-page-card{
+  overflow:hidden;
+}
+.menu-page-card img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:20px;
+}
+@media (max-width: 900px){
+  .menu-pages-grid,
+  .menu-page-grid,
+  .menu-grid,
+  .menu-showcase-grid{
+    display:grid !important;
+    grid-template-columns:1fr !important;
+    gap:18px !important;
+  }
+
+  .menu-page-card,
+  .menu-preview-card,
+  .menu-showcase-card{
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+    margin:0 !important;
+    padding:18px !important;
+    border-radius:24px !important;
+    box-sizing:border-box !important;
+  }
+
+  .menu-page-card img,
+  .menu-preview-card img,
+  .menu-showcase-card img{
+    width:100% !important;
+    max-width:100% !important;
+    height:auto !important;
+    object-fit:contain !important;
+  }
+
+  .menu-page-card h3{
+    font-size:clamp(2rem, 8vw, 3rem) !important;
+    line-height:0.95 !important;
+  }
+
+  .menu-page-card p{
+    font-size:1rem !important;
+    line-height:1.45 !important;
+  }
+
+  .page-shell,
+  .menu-page-shell,
+  main{
+    overflow-x:hidden !important;
+  }
+
+  body{
+    overflow-x:hidden !important;
+  }
+}
