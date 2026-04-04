@@ -644,3 +644,53 @@ p,li{font-size:.96rem; line-height:1.65}
     line-height: 1.28 !important;
   }
 }
+
+
+/* Final tightening requested */
+.why-grid h2,
+.why-title{
+  font-size: clamp(2rem, 3.2vw, 3rem) !important;
+}
+.why-grid .clean-list{
+  margin: 10px 0 18px !important;
+}
+.why-grid .clean-list li{
+  padding: 4px 0 !important;
+  line-height: 1.18 !important;
+}
+.why-grid .section-heading{
+  gap: 0 !important;
+}
+.why-grid .btn{
+  margin-top: 10px !important;
+}
+@media (max-width: 768px){
+  .why-grid h2,
+  .why-title{
+    font-size: 1.62rem !important;
+  }
+  .why-grid .clean-list li{
+    padding: 3px 0 !important;
+    line-height: 1.12 !important;
+  }
+}
+
+
+/* Mobile buttons darker + warmer brown */
+@media (max-width: 768px){
+  .quick-links .quick-link{
+    background: linear-gradient(180deg, #d8cfc6, #cbbfb4) !important;
+    color: #2a1e17 !important;
+    border: 1px solid rgba(120, 80, 50, 0.15) !important;
+  }
+  .quick-links .quick-link:hover{
+    background: linear-gradient(180deg, #cbbfb4, #b8a99c) !important;
+  }
+}
+
+/* Slightly warmer overall tone */
+:root{
+  --surface: #f6f1eb !important;
+  --surface-2: #efe6dc !important;
+  --text-main: #3a2a1f !important;
+}
