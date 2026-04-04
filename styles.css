@@ -724,3 +724,65 @@ p,li{font-size:.96rem; line-height:1.65}
   --surface: #eee5dc !important;
   --surface-2: #e3d6c8 !important;
 }
+
+
+/* V6 force-fix hero and quick access buttons */
+.hero h1,
+.hero-copy h1,
+.centered-copy h1{
+  max-width: 24ch !important;
+  width: 100%;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+@media (max-width: 768px){
+  .hero h1,
+  .hero-copy h1,
+  .centered-copy h1{
+    max-width: 15ch !important;
+    font-size: 2.15rem !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.01em !important;
+    text-wrap: balance;
+  }
+  .hero-copy,
+  .centered-copy{
+    max-width: 100% !important;
+  }
+}
+
+/* Quick access cards exactly dark */
+.clean-action-grid .action-card,
+.action-grid .action-card,
+.quick-links .quick-link,
+.quick-links a{
+  background: linear-gradient(180deg, #4a2f22, #2d1b12) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 12px 24px rgba(60,40,31,.18) !important;
+}
+.clean-action-grid .action-card h3,
+.action-grid .action-card h3,
+.quick-links .quick-link,
+.quick-links a{
+  color: #ffffff !important;
+}
+.clean-action-grid .action-card:hover,
+.action-grid .action-card:hover{
+  background: linear-gradient(180deg, #5b3a2a, #38231a) !important;
+}
+
+/* Ensure quick links spacing still good on mobile */
+@media (max-width: 768px){
+  .clean-action-grid .action-card,
+  .action-grid .action-card{
+    min-height: 64px !important;
+    border-radius: 999px !important;
+    padding: 16px 18px !important;
+  }
+  .clean-action-grid .action-card h3,
+  .action-grid .action-card h3{
+    font-size: 1.05rem !important;
+    line-height: 1.2 !important;
+  }
+}
