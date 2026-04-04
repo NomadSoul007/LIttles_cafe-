@@ -432,3 +432,118 @@ p,li{font-size:.96rem; line-height:1.65}
     bottom:12px;
   }
 }
+
+
+/* Requested client final tweaks */
+.centered-copy,
+.centered-copy .eyebrow,
+.centered-copy .hero-text,
+.centered-copy h2{
+  text-align:center !important;
+}
+.centered-copy h1{
+  max-width:11.5ch;
+  margin-left:auto;
+  margin-right:auto;
+}
+.why-grid .section-heading{
+  margin-inline:auto;
+}
+.why-grid h2{
+  font-size:clamp(1.8rem,3vw,2.6rem);
+  white-space:nowrap;
+}
+.centered-block .section-heading,
+.menu-heading-row{
+  text-align:center;
+}
+.single-line-title{
+  white-space:nowrap;
+  margin-left:auto;
+  margin-right:auto;
+}
+.clean-action-grid{
+  align-items:stretch;
+}
+.clean-action-grid .action-card{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.clean-action-grid .action-card h3{
+  text-align:center;
+  width:100%;
+  margin:0;
+}
+.featured-top h3{
+  font-size:clamp(1.55rem,2.2vw,2.1rem);
+}
+.package-subtitle{
+  margin:4px 0 0;
+  font-size:.95rem;
+  line-height:1.45;
+  color:var(--muted);
+  text-align:left;
+}
+#center-carousel .carousel-slide img{
+  object-position:center center !important;
+}
+#menu-carousel .carousel-slide img{
+  object-position:center center !important;
+}
+@media (max-width: 900px){
+  .single-line-title{
+    font-size:clamp(1.5rem,5.2vw,2rem) !important;
+  }
+  .why-grid h2{
+    font-size:clamp(1.65rem,5.6vw,2.05rem) !important;
+    white-space:nowrap;
+  }
+  .centered-copy h1{
+    max-width:12.5ch;
+  }
+  .clean-action-grid .action-card h3{
+    font-size:1.05rem;
+  }
+}
+@media (max-width: 768px){
+  .single-line-title{
+    font-size:1.45rem !important;
+  }
+  .why-grid h2{
+    font-size:1.52rem !important;
+  }
+  .package-subtitle{
+    font-size:.9rem;
+  }
+  .clean-action-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .clean-action-grid .action-card{
+    min-height:88px;
+  }
+}
+
+
+/* restore selected photos centering */
+#hero-carousel .carousel-slide img,
+#center-carousel .carousel-slide img{
+  object-position:center center !important;
+}
+
+
+/* Lower photo focus to avoid too much ceiling */
+#hero-carousel .carousel-slide img{
+  object-position:center 78% !important;
+}
+#center-carousel .carousel-slide img{
+  object-position:center 72% !important;
+}
+@media (max-width: 768px){
+  #hero-carousel .carousel-slide img{
+    object-position:center 82% !important;
+  }
+  #center-carousel .carousel-slide img{
+    object-position:center 76% !important;
+  }
+}
