@@ -786,3 +786,16 @@ p,li{font-size:.96rem; line-height:1.65}
     line-height: 1.2 !important;
   }
 }
+
+
+/* V8 HARD FIX hero EXACT 3 lines mobile */
+@media (max-width: 768px){
+  .hero h1,
+  .hero-copy h1,
+  .centered-copy h1{
+    max-width: 22ch !important; /* ключ — шире */
+    font-size: 1.95rem !important;
+    line-height: 1.08 !important;
+    letter-spacing: -0.01em;
+  }
+}
