@@ -694,3 +694,33 @@ p,li{font-size:.96rem; line-height:1.65}
   --surface-2: #efe6dc !important;
   --text-main: #3a2a1f !important;
 }
+
+
+.hero h1{
+  max-width: 600px;
+  font-size: clamp(1.9rem, 4.5vw, 2.6rem) !important;
+  line-height: 1.15 !important;
+}
+@media (max-width: 768px){
+  .hero h1{
+    max-width: 320px;
+    font-size: 1.7rem !important;
+    line-height: 1.15 !important;
+  }
+}
+
+
+.quick-links .quick-link{
+  background: linear-gradient(180deg, #4a2f22, #2d1b12) !important;
+  color: #fff !important;
+  border: none !important;
+}
+.quick-links .quick-link:hover{
+  background: linear-gradient(180deg, #5a3a2b, #3a2419) !important;
+}
+
+
+:root{
+  --surface: #eee5dc !important;
+  --surface-2: #e3d6c8 !important;
+}
