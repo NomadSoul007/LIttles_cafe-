@@ -799,3 +799,25 @@ p,li{font-size:.96rem; line-height:1.65}
     letter-spacing: -0.01em;
   }
 }
+
+
+/* lighten quick access buttons to fit design better */
+.clean-action-grid .action-card,
+.action-grid .action-card,
+.quick-links .quick-link,
+.quick-links a{
+  background: linear-gradient(180deg, #e6ddd4, #d8cdc1) !important;
+  color: #4a3428 !important;
+  border: 1px solid rgba(118, 88, 68, 0.10) !important;
+  box-shadow: 0 10px 20px rgba(118, 88, 68, 0.08) !important;
+}
+.clean-action-grid .action-card h3,
+.action-grid .action-card h3,
+.quick-links .quick-link,
+.quick-links a{
+  color: #4a3428 !important;
+}
+.clean-action-grid .action-card:hover,
+.action-grid .action-card:hover{
+  background: linear-gradient(180deg, #ddd2c6, #cfc1b4) !important;
+}
