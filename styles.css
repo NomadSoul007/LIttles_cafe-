@@ -867,3 +867,48 @@ p,li{font-size:.96rem; line-height:1.65}
   display:none;
 }
 
+
+
+/* Little Stars client update */
+.brand-logo{
+  object-fit:contain !important;
+  background:#050403;
+  padding:4px;
+}
+.closure-branches{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.closure-branch{
+  background:rgba(255,255,255,.54);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:18px;
+}
+.closure-branch h3{
+  font-family:"Inter",system-ui,sans-serif;
+  font-size:1rem;
+  line-height:1.35;
+  margin:0 0 10px;
+}
+.closure-branch ul{
+  margin:0;
+  padding-left:18px;
+}
+.branch-contact-box a{
+  color:var(--text);
+  font-weight:700;
+}
+.why-title{
+  white-space:normal !important;
+}
+@media (max-width:768px){
+  .closure-branches{
+    grid-template-columns:1fr;
+  }
+  .why-title{
+    font-size:1.36rem !important;
+    line-height:1.05 !important;
+  }
+}
