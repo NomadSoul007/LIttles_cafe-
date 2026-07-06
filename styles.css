@@ -118,8 +118,6 @@ p,li{font-size:.96rem; line-height:1.65}
   border-radius:28px;
 }
 .media-carousel.compact .carousel-slide img{height:480px; object-position:center center}
-.menu-carousel{max-width:720px}
-.menu-carousel .carousel-slide img{height:420px; object-fit:cover; object-position:center center}
 .carousel-btn{
   position:absolute; top:50%; transform:translateY(-50%);
   width:46px; height:46px; border-radius:50%;
@@ -198,7 +196,7 @@ p,li{font-size:.96rem; line-height:1.65}
   color:#efd4bf;
 }
 
-.menu-preview-actions,.package-actions{
+.package-actions{
   display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:18px;
 }
 .contact-box{
@@ -224,32 +222,13 @@ p,li{font-size:.96rem; line-height:1.65}
   font-weight:700; box-shadow:0 14px 34px rgba(0,0,0,.25);
 }
 
-/* Menu page */
-.menu-page-shell{max-width:1120px}
-.menu-hero{display:flex; justify-content:space-between; align-items:flex-end; gap:22px}
-.menu-hero-actions{display:flex; gap:12px; flex-wrap:wrap}
-.menu-pages-list{display:flex; flex-direction:column; gap:22px}
-.menu-page-card{
-  background:rgba(255,255,255,.05);
-  border:1px solid var(--line);
-  border-radius:28px; padding:22px;
-}
-.menu-page-heading{
-  display:flex; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:16px;
-}
-.menu-page-card img{
-  width:100%; display:block; border-radius:22px; background:#f5efe7;
-}
-
 @media (max-width: 980px){
   .desktop-nav{display:none}
   .site-header{padding:16px 18px; border-radius:26px}
   .hero-grid, .packages-grid, .contact-box{grid-template-columns:1fr}
-  .carousel, .menu-carousel{max-width:100%}
+  .carousel{max-width:100%}
   .carousel-slide img{height:420px}
   .media-carousel.compact .carousel-slide img{height:420px}
-  .menu-hero,.menu-page-heading{display:block}
-  .menu-hero-actions .btn,.menu-page-heading .btn{width:100%; margin-top:12px}
 }
 @media (max-width: 768px){
   .page-shell{padding:14px 10px 90px}
@@ -258,97 +237,8 @@ p,li{font-size:.96rem; line-height:1.65}
   h2{font-size:clamp(2rem,3.4vw,3rem); line-height:1}
   .action-grid{grid-template-columns:1fr 1fr}
   .carousel-slide img,
-  .media-carousel.compact .carousel-slide img,
-  .menu-carousel .carousel-slide img{height:320px}
+  .media-carousel.compact .carousel-slide img{height:320px}
   .floating-wa{width:66px; height:66px; right:14px; bottom:14px}
-}
-
-
-/* Menu polish */
-.polished-menu-section{
-  padding:24px 24px 26px;
-}
-.menu-heading-row{
-  margin-bottom:14px;
-}
-.menu-heading-row h2{font-size:clamp(2rem,3.4vw,3rem); line-height:1}
-.menu-showcase{
-  max-width:760px;
-  margin:0 auto;
-}
-.polished-carousel{
-  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:30px;
-  box-shadow:0 16px 34px rgba(0,0,0,.18);
-  padding:16px;
-}
-.polished-carousel .carousel-slide img{
-  border-radius:22px;
-  object-fit:cover;
-  object-position:center;
-  box-shadow:0 10px 24px rgba(0,0,0,.12);
-}
-.polished-carousel .carousel-btn{
-  width:44px;
-  height:44px;
-  background:rgba(18,14,13,.58);
-  backdrop-filter:blur(8px);
-  border:1px solid rgba(255,255,255,.10);
-  color:#fff;
-  transition:transform .2s ease, background .2s ease, border-color .2s ease;
-}
-.polished-carousel .carousel-btn:hover{
-  transform:translateY(-50%) scale(1.04);
-  background:rgba(29,22,19,.82);
-  border-color:rgba(255,255,255,.18);
-}
-.polished-carousel .carousel-btn.prev{left:16px;}
-.polished-carousel .carousel-btn.next{right:16px;}
-.polished-carousel .carousel-dots{
-  bottom:18px;
-  gap:7px;
-}
-.polished-carousel .dot{
-  width:8px;
-  height:8px;
-  background:rgba(255,255,255,.38);
-  transition:all .22s ease;
-}
-.polished-carousel .dot.active{
-  width:22px;
-  border-radius:999px;
-  background:#fff;
-}
-.polished-menu-actions{
-  margin-top:16px;
-  justify-content:center;
-  align-items:center;
-}
-.polished-menu-actions .btn{
-  min-width:230px;
-}
-@media (max-width: 768px){
-  .polished-menu-section{
-    padding:18px 16px 20px;
-  }
-  .menu-showcase{
-    max-width:100%;
-  }
-  .polished-carousel{
-    padding:12px;
-    border-radius:24px;
-  }
-  .polished-carousel .carousel-slide img{
-    border-radius:18px;
-  }
-  .polished-menu-actions{
-    flex-direction:column;
-  }
-  .polished-menu-actions .btn{
-    width:100%;
-    min-width:0;
-  }
 }
 
 .section-surface:hover{
@@ -407,10 +297,6 @@ p,li{font-size:.96rem; line-height:1.65}
     height:300px !important;
     object-position:center center !important;
   }
-  .menu-carousel .carousel-slide img{
-    height:250px !important;
-    object-position:center center !important;
-  }
 }
 @media (max-width: 768px){
   h1{font-size:clamp(2.35rem,10vw,3.8rem)}
@@ -420,7 +306,6 @@ p,li{font-size:.96rem; line-height:1.65}
   .page-shell{padding:12px 10px 86px}
   .section-surface{padding:16px; border-radius:24px}
   .carousel-slide img{height:285px !important}
-  .menu-carousel .carousel-slide img{height:235px !important}
   .action-card{
     background:rgba(255,255,255,.78);
     padding:18px 14px;
@@ -432,7 +317,6 @@ p,li{font-size:.96rem; line-height:1.65}
     bottom:12px;
   }
 }
-
 
 /* Requested client final tweaks */
 .centered-copy,
@@ -453,8 +337,7 @@ p,li{font-size:.96rem; line-height:1.65}
   font-size:clamp(1.8rem,3vw,2.6rem);
   white-space:nowrap;
 }
-.centered-block .section-heading,
-.menu-heading-row{
+.centered-block .section-heading{
   text-align:center;
 }
 .single-line-title{
@@ -486,9 +369,6 @@ p,li{font-size:.96rem; line-height:1.65}
   text-align:left;
 }
 #center-carousel .carousel-slide img{
-  object-position:center center !important;
-}
-#menu-carousel .carousel-slide img{
   object-position:center center !important;
 }
 @media (max-width: 900px){
@@ -524,13 +404,11 @@ p,li{font-size:.96rem; line-height:1.65}
   }
 }
 
-
 /* restore selected photos centering */
 #hero-carousel .carousel-slide img,
 #center-carousel .carousel-slide img{
   object-position:center center !important;
 }
-
 
 /* Lower photo focus to avoid too much ceiling */
 #hero-carousel .carousel-slide img{
@@ -547,7 +425,6 @@ p,li{font-size:.96rem; line-height:1.65}
     object-position:center 76% !important;
   }
 }
-
 
 /* Final requested client tweaks */
 .centered-copy h1{
@@ -645,7 +522,6 @@ p,li{font-size:.96rem; line-height:1.65}
   }
 }
 
-
 /* Final tightening requested */
 .why-grid h2,
 .why-title{
@@ -675,7 +551,6 @@ p,li{font-size:.96rem; line-height:1.65}
   }
 }
 
-
 /* Mobile buttons darker + warmer brown */
 @media (max-width: 768px){
   .quick-links .quick-link{
@@ -695,7 +570,6 @@ p,li{font-size:.96rem; line-height:1.65}
   --text-main: #3a2a1f !important;
 }
 
-
 .hero h1{
   max-width: 600px;
   font-size: clamp(1.9rem, 4.5vw, 2.6rem) !important;
@@ -709,7 +583,6 @@ p,li{font-size:.96rem; line-height:1.65}
   }
 }
 
-
 .quick-links .quick-link{
   background: linear-gradient(180deg, #4a2f22, #2d1b12) !important;
   color: #fff !important;
@@ -719,12 +592,10 @@ p,li{font-size:.96rem; line-height:1.65}
   background: linear-gradient(180deg, #5a3a2b, #3a2419) !important;
 }
 
-
 :root{
   --surface: #eee5dc !important;
   --surface-2: #e3d6c8 !important;
 }
-
 
 /* V6 force-fix hero and quick access buttons */
 .hero h1,
@@ -787,7 +658,6 @@ p,li{font-size:.96rem; line-height:1.65}
   }
 }
 
-
 /* V8 HARD FIX hero EXACT 3 lines mobile */
 @media (max-width: 768px){
   .hero h1,
@@ -799,7 +669,6 @@ p,li{font-size:.96rem; line-height:1.65}
     letter-spacing: -0.01em;
   }
 }
-
 
 /* lighten quick access buttons to fit design better */
 .clean-action-grid .action-card,
@@ -821,7 +690,6 @@ p,li{font-size:.96rem; line-height:1.65}
 .action-grid .action-card:hover{
   background: linear-gradient(180deg, #ddd2c6, #cfc1b4) !important;
 }
-
 
 .package-title{font-family:"Inter",system-ui,sans-serif; font-weight:700; line-height:1.15; letter-spacing:.01em}
 .package-title-mini,.package-title-big{font-size:1.55rem}
@@ -848,9 +716,7 @@ p,li{font-size:.96rem; line-height:1.65}
   .package-carousel .carousel-slide img{height:240px}
 }
 
-
 .catalog-page-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.catalog-page-card{display:flex;flex-direction:column;gap:10px;padding:12px;border-radius:20px;background:rgba(255,255,255,.58);border:1px solid var(--line);text-decoration:none;color:var(--text);box-shadow:var(--shadow-soft)}.catalog-page-card img{width:100%;height:auto;border-radius:14px;display:block}.catalog-page-card span{text-align:center;font-weight:600}.catalog-page-card:hover{transform:translateY(-3px);transition:.2s ease}.animator-carousel img{object-fit:cover}@media (max-width:980px){.catalog-page-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}@media (max-width:640px){.catalog-page-grid{grid-template-columns:1fr;}}
-
 
 .catalog-title{
   line-height:.88;
@@ -866,8 +732,6 @@ p,li{font-size:.96rem; line-height:1.65}
 .catalog-page-card span{
   display:none;
 }
-
-
 
 /* Little Stars client update */
 .brand-logo{
@@ -912,7 +776,6 @@ p,li{font-size:.96rem; line-height:1.65}
     line-height:1.05 !important;
   }
 }
-
 
 /* Branch booking selector */
 .modal-open{
