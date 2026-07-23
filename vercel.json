@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/reservation/",
+      "destination": "/reservation",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/reservation",
+      "destination": "/index.html"
+    }
+  ]
+}

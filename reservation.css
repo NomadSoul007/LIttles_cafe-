@@ -1,0 +1,217 @@
+.reservation-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.reservation-modal.is-open {
+  display: flex;
+}
+
+.reservation-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 18, 14, 0.48);
+  backdrop-filter: blur(8px);
+}
+
+.reservation-modal-card {
+  position: relative;
+  width: min(500px, 100%);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  background: rgba(255, 250, 243, 0.99);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: 0 24px 80px rgba(54, 38, 30, 0.3);
+  padding: 30px;
+}
+
+.reservation-modal-card h2 {
+  margin: 4px 0 8px;
+  font-size: 2.15rem;
+  line-height: 1;
+}
+
+.reservation-modal-intro {
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.reservation-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(58, 35, 27, 0.08);
+  color: var(--text);
+  font-size: 1.55rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.reservation-modal-close:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+.reservation-form {
+  display: grid;
+  gap: 16px;
+}
+
+.reservation-field {
+  display: grid;
+  gap: 7px;
+}
+
+.reservation-field label {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.reservation-field input {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid rgba(108, 84, 72, 0.2);
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--text);
+  padding: 12px 14px;
+  font: inherit;
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.reservation-field input:focus {
+  border-color: rgba(143, 102, 83, 0.72);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(143, 102, 83, 0.1);
+}
+
+.reservation-field input[aria-invalid="true"] {
+  border-color: #a3443b;
+}
+
+.reservation-field-error {
+  min-height: 17px;
+  margin: 0;
+  color: #943d35;
+  font-size: 0.79rem;
+  line-height: 1.35;
+}
+
+.reservation-submit {
+  width: 100%;
+  min-height: 52px;
+  margin-top: 2px;
+  border: 0;
+  cursor: pointer;
+}
+
+.reservation-submit:disabled {
+  cursor: wait;
+  opacity: 0.72;
+  transform: none;
+}
+
+.reservation-spinner {
+  display: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.38);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: reservation-spin 0.72s linear infinite;
+}
+
+.reservation-submit.is-loading .reservation-spinner {
+  display: inline-block;
+}
+
+.reservation-form-status {
+  min-height: 20px;
+  margin: 0;
+  color: #943d35;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.reservation-success {
+  padding: 30px 4px 22px;
+  text-align: center;
+}
+
+.reservation-success[hidden],
+.reservation-form[hidden] {
+  display: none;
+}
+
+.reservation-success-mark {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: rgba(143, 102, 83, 0.12);
+  color: #6d4735;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.reservation-success h2 {
+  margin-bottom: 10px;
+}
+
+.reservation-success p {
+  max-width: 34ch;
+  margin: 0 auto;
+  color: var(--muted);
+}
+
+.reservation-honeypot {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+}
+
+@keyframes reservation-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .reservation-modal {
+    align-items: flex-end;
+    padding: 12px;
+  }
+
+  .reservation-modal-card {
+    max-height: calc(100dvh - 24px);
+    border-radius: 24px;
+    padding: 26px 18px 20px;
+  }
+
+  .reservation-modal-card h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reservation-spinner {
+    animation-duration: 1.4s;
+  }
+}

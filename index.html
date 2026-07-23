@@ -6,6 +6,20 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Little Stars — Kids Play Café</title>
 <meta content="Little Stars — уютное семейное кафе и игровая зона в Алматы. Праздничные пакеты, игровая зона и бронь через WhatsApp." name="description"/>
+<script src="meta-pixel.js"></script>
+<script>
+  if (/^\/reservation\/?$/.test(window.location.pathname)) {
+    const reservationStyles = document.createElement('link');
+    reservationStyles.rel = 'stylesheet';
+    reservationStyles.href = '/reservation.css';
+    document.head.appendChild(reservationStyles);
+  }
+</script>
+<script type="module">
+  if (/^\/reservation\/?$/.test(window.location.pathname)) {
+    import('/reservation.js');
+  }
+</script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
