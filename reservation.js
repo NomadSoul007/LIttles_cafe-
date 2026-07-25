@@ -1,7 +1,6 @@
 (function initializeReservationPage() {
   'use strict';
 
-  const AUTO_OPEN_ROUTE = /^(?:\/|\/add\/?)$/;
   const API_ENDPOINT = '/api/reservations';
   const MAX_GUESTS = 100;
   const SUCCESS_CLOSE_DELAY = 2600;
@@ -369,8 +368,4 @@
       firstElement.focus();
     }
   });
-
-  if (AUTO_OPEN_ROUTE.test(window.location.pathname)) {
-    openModal();
-  }
 })();
