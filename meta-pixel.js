@@ -2,7 +2,7 @@
   'use strict';
 
   // Replace this value with the numeric Meta Pixel ID from Events Manager.
-  const META_PIXEL_ID = 'PASTE_META_PIXEL_ID_HERE';
+  const META_PIXEL_ID = '1707707753781522';
 
   if (!/^\d{5,20}$/.test(META_PIXEL_ID)) {
     return;

@@ -168,10 +168,15 @@ module.exports = async function reservationsHandler(request, response) {
       googleResult = null;
     }
 
+    const reservationNumber =
+      googleResult && Number(googleResult.reservationNumber);
+
     if (
       !googleResponse.ok ||
       !googleResult ||
-      googleResult.ok !== true
+      googleResult.ok !== true ||
+      !Number.isInteger(reservationNumber) ||
+      reservationNumber < 1
     ) {
       sendJson(response, 502, {
         ok: false,
@@ -183,8 +188,7 @@ module.exports = async function reservationsHandler(request, response) {
 
     sendJson(response, 201, {
       ok: true,
-      reservationNumber:
-        googleResult.reservationNumber || null
+      reservationNumber
     });
   } catch (error) {
     console.error('Reservation integration error:', error);

@@ -1,12 +1,12 @@
 (function initializeReservationPage() {
   'use strict';
 
-  const RESERVATION_ROUTE = /^\/reservation\/?$/;
-  const BOOKING_BUTTON_SELECTOR = '[data-branch-select], a[href^="https://wa.me/"]';
+  const AUTO_OPEN_ROUTE = /^(?:\/|\/add\/?)$/;
   const API_ENDPOINT = '/api/reservations';
+  const MAX_GUESTS = 100;
   const SUCCESS_CLOSE_DELAY = 2600;
 
-  if (!RESERVATION_ROUTE.test(window.location.pathname)) {
+  if (document.getElementById('reservation-modal')) {
     return;
   }
 
@@ -65,6 +65,7 @@
               <input
                 id="reservation-guests"
                 inputmode="numeric"
+                max="${MAX_GUESTS}"
                 min="1"
                 name="guests"
                 required
@@ -178,8 +179,8 @@
 
     if (fieldName === 'guests') {
       const guests = Number(fields.guests.value);
-      const isValid = Number.isInteger(guests) && guests >= 1;
-      const error = isValid ? '' : 'Укажите количество персон — минимум 1.';
+      const isValid = Number.isInteger(guests) && guests >= 1 && guests <= MAX_GUESTS;
+      const error = isValid ? '' : `Укажите количество персон от 1 до ${MAX_GUESTS}.`;
       setFieldError('guests', error);
       return !error;
     }
@@ -213,6 +214,10 @@
   }
 
   function openModal() {
+    if (modal.classList.contains('is-open')) {
+      return;
+    }
+
     clearTimeout(closeTimer);
     previouslyFocusedElement = document.activeElement;
     modal.classList.add('is-open');
@@ -257,6 +262,11 @@
 
   async function submitReservation(event) {
     event.preventDefault();
+
+    if (isSubmitting) {
+      return;
+    }
+
     statusMessage.textContent = '';
 
     if (!validateForm()) {
@@ -300,21 +310,13 @@
     }
   }
 
-  document.addEventListener(
-    'click',
-    (event) => {
-      const bookingButton = event.target.closest(BOOKING_BUTTON_SELECTOR);
-
-      if (!bookingButton) {
-        return;
-      }
-
+  document.querySelectorAll('[data-reservation-trigger]').forEach((bookingButton) => {
+    bookingButton.addEventListener('click', (event) => {
       event.preventDefault();
       event.stopImmediatePropagation();
       openModal();
-    },
-    true
-  );
+    }, true);
+  });
 
   closeButtons.forEach((closeButton) => {
     closeButton.addEventListener('click', closeModal);
@@ -367,4 +369,8 @@
       firstElement.focus();
     }
   });
+
+  if (AUTO_OPEN_ROUTE.test(window.location.pathname)) {
+    openModal();
+  }
 })();
