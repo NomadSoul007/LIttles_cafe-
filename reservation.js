@@ -298,12 +298,12 @@
     });
   }
 
-  function trackSuccessfulLead() {
+  function trackMetaContact() {
     if (typeof window.fbq !== 'function') {
       return;
     }
 
-    window.fbq('track', 'Lead');
+    window.fbq('track', 'Contact');
   }
 
   async function submitReservation(event) {
@@ -344,7 +344,7 @@
         throw new Error('Reservation request was not confirmed');
       }
 
-      trackSuccessfulLead();
+      trackMetaContact();
       form.reset();
       formView.hidden = true;
       successView.hidden = false;

@@ -4,6 +4,59 @@
   // Replace this value with the numeric Meta Pixel ID from Events Manager.
   const META_PIXEL_ID = '1707707753781522';
 
+  function isReservationMode() {
+    const path = windowObject.location.pathname.replace(/\/+$/, '') || '/';
+    const params = new URLSearchParams(windowObject.location.search);
+
+    return (
+      path === '/add' ||
+      params.get('booking') === 'form'
+    );
+  }
+
+  function isWhatsAppLink(link) {
+    if (!link || !link.href) {
+      return false;
+    }
+
+    const href = String(link.getAttribute('href') || '')
+      .trim()
+      .toLowerCase();
+
+    return (
+      href.includes('wa.me/') ||
+      href.includes('api.whatsapp.com/') ||
+      href.startsWith('whatsapp:')
+    );
+  }
+
+  function handleWhatsAppClick(event) {
+    const target = event.target;
+    const link = target && typeof target.closest === 'function'
+      ? target.closest('a[href]')
+      : null;
+
+    if (!isWhatsAppLink(link)) {
+      return;
+    }
+
+    if (
+      isReservationMode() &&
+      link.matches('[data-booking-cta]')
+    ) {
+      return;
+    }
+
+    if (typeof windowObject.fbq === 'function') {
+      windowObject.fbq('track', 'Lead');
+    }
+  }
+
+  if (!windowObject.__littleStarsWhatsAppTrackingBound) {
+    windowObject.__littleStarsWhatsAppTrackingBound = true;
+    documentObject.addEventListener('click', handleWhatsAppClick);
+  }
+
   if (!/^\d{5,20}$/.test(META_PIXEL_ID)) {
     return;
   }
