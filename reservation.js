@@ -5,6 +5,53 @@
   const MAX_GUESTS = 100;
   const SUCCESS_CLOSE_DELAY = 2600;
 
+  function isReservationMode() {
+    const path = window.location.pathname.replace(/\/+$/, '') || '/';
+    const params = new URLSearchParams(window.location.search);
+
+    return (
+      path === '/add' ||
+      params.get('booking') === 'form'
+    );
+  }
+
+  function preserveReservationModeInLinks() {
+    document.querySelectorAll('a[href]').forEach((link) => {
+      const href = link.getAttribute('href');
+
+      if (!href || href.startsWith('#')) {
+        return;
+      }
+
+      const url = new URL(href, window.location.href);
+
+      if (url.origin !== window.location.origin) {
+        return;
+      }
+
+      const path = url.pathname.replace(/\/+$/, '') || '/';
+
+      if (path === '/' || path.endsWith('/index.html')) {
+        link.setAttribute('href', `/add${url.hash}`);
+        return;
+      }
+
+      if (
+        path.endsWith('/packages.html') ||
+        path.endsWith('/animator-catalog.html')
+      ) {
+        url.searchParams.set('booking', 'form');
+        link.setAttribute('href', `${url.pathname}${url.search}${url.hash}`);
+      }
+    });
+  }
+
+  if (!isReservationMode()) {
+    return;
+  }
+
+  preserveReservationModeInLinks();
+
   if (document.getElementById('reservation-modal')) {
     return;
   }
@@ -309,7 +356,7 @@
     }
   }
 
-  document.querySelectorAll('[data-reservation-trigger]').forEach((bookingButton) => {
+  document.querySelectorAll('[data-booking-cta]').forEach((bookingButton) => {
     bookingButton.addEventListener('click', (event) => {
       event.preventDefault();
       event.stopImmediatePropagation();
